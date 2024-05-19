@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShopMagic</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+      p {
+        margin-bottom: 10px;
+        color: #666;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin-top: 20px;
+        margin-left: 20%;
+      }
+      .logout-link {
+        text-decoration: none;
+        color: #f4f4f4;
+        font-weight: 4 00;
+        align-items: end;
+        margin-left: 90%;
+        border: 1px solid #333;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        border-radius: 5px;
+        background-color: salmon;
+      }
+      .logout-link:hover {
+        color: black;
+        background-color: slateblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a th:href="@{/logout}" class="logout-link">Logout</a>
+      <h1>Park Polmed</h1>
+      <img th:src="${user.nameImage}" />
+    </div>
+  </body>
+</html>
