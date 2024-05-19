@@ -58,7 +58,16 @@
     <div class="container">
       <a th:href="@{/logout}" class="logout-link">Logout</a>
       <h1>Park Polmed</h1>
-      <img th:src="${user.nameImage}" />
+      <img id="qrCode"/>
     </div>
+    <script th:inline="javascript">
+      /*<![CDATA[*/
+      (function() {
+        var byteimage = /*[[${user.image}]]*/ '';
+        document.getElementById("qrCode").src = "data:image/png;base64," + byteimage
+      })();
+
+      /*]]>*/
+    </script>
   </body>
 </html>

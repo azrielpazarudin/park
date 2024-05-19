@@ -17,14 +17,10 @@ import com.park.park.repository.TampunganRepository;
 import com.park.park.repository.UserRepository;
 import com.park.park.utils.QrCode;
 
-import com.park.park.utils.EnvUtil;
-
 @Controller
 public class UserController {
     @Autowired
     private UserRepository userRepository;
-    @Autowired
-    private EnvUtil envUtil;
 
     @Autowired
     private TampunganRepository tampunganRepository;
@@ -48,10 +44,8 @@ public class UserController {
                 return "daftar-gagal";
             }
             try{
-                String url = envUtil.getServerUrlPrefix()+"/"+ user.getName() + user.getNim() + "-QRCODE.png";
-                user.setNameImage(url);
+                user.setImage(QrCode.generateQrcode(user));
                 userRepository.save(user);
-                QrCode.generateQrcode(user);
                 return "redirect:/login";
             }catch(Exception e){
                 e.printStackTrace();
@@ -72,7 +66,7 @@ public class UserController {
         }
         if(user.getPassword().equals(pass)){
             Tampungan tampungan = new Tampungan();
-            tampungan.setImageName(user.getNameImage());
+            tampungan.setImage(user.getImage());
             tampungan.setPassword(pass);
             tampungan.setUsername(username);
             tampunganRepository.save(tampungan);

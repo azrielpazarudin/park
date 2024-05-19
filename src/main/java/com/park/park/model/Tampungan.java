@@ -13,5 +13,6 @@ public class Tampungan {
     private Integer id;
     private String username;
     private String password;
-    private String imageName;
+    @Column(columnDefinition = "BLOB")
+    private byte[] image;
 }

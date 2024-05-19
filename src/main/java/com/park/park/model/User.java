@@ -16,5 +16,6 @@ public class User {
     private String password;
     private String plat;
     private String jurusan;
-    private String nameImage;
+    @Column(columnDefinition = "BLOB")
+    private byte[] image;
 }
