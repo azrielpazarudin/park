@@ -2,11 +2,12 @@ version: "3.7"
 services:
   springoot:
     container_name: park-polmed
-    image: azrielpazarudin23/park-polmed:2.0
+    image: azrielpazarudin23/park-polmed:3.0
     build: .
     restart: always
     ports:
       - 8080:8080
+    network_mode: "host"
     # networks:
     #   - mypark-net
     
